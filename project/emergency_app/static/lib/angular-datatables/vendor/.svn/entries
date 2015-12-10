@@ -1,0 +1,52 @@
+10
+
+dir
+56
+http://192.168.1.79/svn/training/fcny_reviewerF/static/lib/angular-datatables/vendor
+http://192.168.1.79/svn/training
+
+
+
+2015-08-06T16:19:29.293381Z
+43
+yangli
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2ef386a2-98f7-45e1-a65d-9db1c7b48795
+
+datatables-fixedheader
+dir
+
+datatables-tabletools
+dir
+
+datatables-responsive
+dir
+
+datatables-colvis
+dir
+
+datatables-colreorder
+dir
+
+datatables-fixedcolumns
+dir
+
+datatables-columnfilter
+dir
+
+datatables-scroller
+dir
+

@@ -1,0 +1,55 @@
+10
+
+dir
+56
+http://192.168.1.79/svn/training/fcny_reviewerF/static/lib/DataTables-1.10.7/extensions
+http://192.168.1.79/svn/training
+
+
+
+2015-07-27T20:06:02.846023Z
+27
+yangli
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2ef386a2-98f7-45e1-a65d-9db1c7b48795
+
+FixedHeader
+dir
+
+TableTools
+dir
+
+Responsive
+dir
+
+AutoFill
+dir
+
+ColVis
+dir
+
+ColReorder
+dir
+
+FixedColumns
+dir
+
+KeyTable
+dir
+
+Scroller
+dir
+

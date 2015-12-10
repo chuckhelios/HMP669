@@ -1,0 +1,43 @@
+<div class="panel panel-default report-panel">
+	<div class="panel-heading">
+		<h4>Resident Details</h4>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-4">
+				<h5>Resident Info</h5>
+				<ui>
+					<li></li>
+				</ui>
+			</div>
+			<div class="col-md-4">
+				<h5>Medical History</h5>
+			</div>
+			<div class="col-md-4">
+				<h5>Incident Report</h5>
+				<div ui-view="incident-info" class="slide"></div>
+				<div ui-view="incident-new" class="slide"></div>
+			</div>
+		</div>
+<!-- 		<h5>Resident ID: {{patientDetail.patient_id}}</h5>
+		<table class="table table-hover popover-table">
+			<tr>
+				<td>HCC</td>
+				<td ng-if="patientDetail.coded_hcc.hcc_group.length==0">No HCC Coded</td>
+				<td ng-if="patientDetail.coded_hcc.hcc_group.length!=0">
+					<ul>
+						<li class="list-division" ng-repeat="hccObj in patientDetail.coded_hcc.hcc_group">{{hccObj.hcc_description}}</li>
+					</ul>
+				</td>				
+			</tr>
+			<tr ng-if="patientDetail.feature_involved.length!=0">
+				<td >Feature Invloved</td>
+				<td>
+					<ul>
+						<li class="list-division" ng-repeat="feature in patientDetail.feature_involved">{{feature.feature_description}}</li>
+					</ul>
+				</td>				
+			</tr>
+		</table> -->
+	</div>
+</div>

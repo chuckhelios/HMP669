@@ -1,0 +1,67 @@
+<form  ng-submit="submit()" >
+	<div class="info-group col-sm-8">
+		<ui>
+			<li>
+				<label class="form-label">First Name</label>
+				<span> </span>
+			</li>
+			<li>
+				<label class="form-label">Last Name</label>
+				<span> </span>
+			</li>
+			<li>
+				<label class="form-label">Gender</label>
+				<span> </span>
+			</li>
+			<li>
+				<label class="form-label">Building Number</label>
+				<span> </span>
+			</li>			
+			<li>
+				<label class="form-label">Room Number</label>
+				<span> </span>
+			</li>
+		</ui>
+		<div class="form-group col-md-6">
+			<label class="form-label">Employee ID</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+		<div class="form-group col-md-6">
+			<label class="form-label">Start Date Time</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+		<div class="form-group col-md-6">
+			<label class="form-label">End Date Time</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+		<div class="form-group col-md-6">
+			<label class="form-label">Hosptical</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+		<div class="form-group col-md-6">
+			<label class="form-label">Narrative</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+	</div>
+	<div class="info-group col-sm-4">
+		<div class="form-group">
+			<label class="form-label">Vital Sign</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>		
+		<div class="form-group">
+			<label class="form-label">Result</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+		<div class="form-group">
+			<label class="form-label">Assessment Date</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>
+		<div class="form-group">
+			<label class="form-label">Comment</label>
+			<input type="text" class="form-control" ng-model=""></input>
+		</div>					
+		<div class="form-group btn-control col-md-12">
+			<button type="submit" class="btn btn-default" ng-disabled="form.$invalid || dataLoading" v-busy="dataLoading" v-busy-label="Posting" v-pressable>Submit</button>
+		</div>
+	</div>
+</form>

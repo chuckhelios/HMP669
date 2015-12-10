@@ -1,0 +1,25 @@
+.left{float:left;}
+.right{float: right;}
+
+.panel{
+	height:100%;
+	display:block;
+	overflow:hidden;
+}
+
+.panel_tab{
+	height:100%;
+	overflow: hidden;
+	position: absolute;
+}
+
+.panel_container{
+	width:100%;
+	height:100%;
+	background:#C4C4C4;
+}
+
+.panel_content{
+	height: 100%;
+	overflow: hidden;
+}

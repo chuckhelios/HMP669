@@ -1,0 +1,127 @@
+#main-body{
+	margin-top:100px;
+}
+
+
+/*=======================================================
+==============================================================
+============= ng animation=====================================*/
+.slide.ng-leave {
+  position: relative;
+}
+.slide.ng-enter {
+  position: absolute;
+}
+.slide.ng-enter, .slide.ng-leave {
+  -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
+     -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
+       -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
+          transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+.slide.ng-enter, .slide.ng-leave.ng-leave-active {
+  -webkit-transform: scaleX(0.0001);
+       -o-transform: scaleX(0.0001);
+          transform: scaleX(0.0001);
+  opacity: 0;
+}
+.slide, .slide.ng-enter.ng-enter-active {
+  -webkit-transform: scaleX(1);
+       -o-transform: scaleX(1);
+          transform: scaleX(1);
+  opacity: 1;
+}
+
+.an-basic.ng-enter, 
+.an-basic.ng-leave
+{ 
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+} 
+ 
+.an-basic.ng-enter.ng-enter-active, 
+.an-basic.ng-leave {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+ 
+.an-basic.ng-leave.ng-leave-active,
+.an-basic.ng-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+
+
+.skew.ng-enter, 
+.skew.ng-leave { 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+
+.skew.ng-leave.ng-leave-active,
+.skew.ng-enter {
+    -webkit-transform: skewX(45deg) skewY(30deg);
+    -moz-transform: skewX(45deg) skewY(30deg);
+    -ms-transform: skewX(45deg) skewY(30deg);
+    -o-transform: skewX(45deg) skewY(30deg);
+    transform: skewX(45deg) skewY(30deg);
+    opacity: 0;
+    height: 0px;
+}        
+
+.skew.ng-enter.ng-enter-active,
+.skew.ng-leave {
+    -webkit-transform: skewX(0deg) skewY(0deg);
+    -moz-transform: skewX(0deg) skewY(0deg);
+    -ms-transform: skewX(0deg) skewY(0deg);
+    -o-transform: skewX(0deg) skewY(0deg);
+    transform: skewX(0deg) skewY(0deg);
+    opacity: 1;
+    height: 30px;
+}
+
+.scale.ng-enter, 
+.scale.ng-leave { 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+ 
+.scale.ng-leave.ng-leave-active,
+.scale.ng-enter {
+    -webkit-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    transform: scaleY(0);
+    height: 0px;
+    opacity: 0;
+}
+ 
+.scale.ng-enter.ng-enter-active,
+.scale.ng-leave {
+    -webkit-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+    height: 30px;
+    opacity: 1;
+}
+
+/*==================End  ng animation=====================================*/

@@ -1,0 +1,54 @@
+
+<!-- Navigation -->
+<nav class="navbar navbar-default main-nav navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand -->
+    <div class="logo-div">
+      <a class="navbar-brand page-scroll" id="logo-link" href="/">
+        <div>
+        <!--<img id="logo-img" src="img/mylogo.png" alt="logo"/>-->      </div>
+        <div>
+          <p></p>
+        </div>
+      </a>
+    </div>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scoll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Get the nav links for taggling -->
+    <div class="collapse navbar-collapse" id="navHeaderCollapse">
+      <ul class="nav navbar-nav navbar-right">
+      {% if user.is_authenticated %}
+        <li>
+          <a class="page-scroll" href="">+{{user.username}}</a>
+        </li>
+<!--         <li ng-class="{active: $state.includes('report-user') || $state.includes('report-hcc') }" class="dropdown">
+            <a id='report-nav-btn' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="caret"></span></a> 
+            <ul class="dropdown-menu">
+              <li ng-class="{active:$state.includes('report-user')}"><a ui-sref="report-user.list">User Report</a></li>
+              <li ng-class="{active:$state.includes('report-hcc')}"><a ui-sref="report-hcc.list">HCC Report</a></li>
+            </ul>
+        </li> -->
+        <!-- else -->
+<!--         <li ng-class="{active:$state.includes('dashboard')}">
+          <a class="page-scroll" ui-sref="dashboard.parent">Dashboard</a>
+        </li>   -->        
+
+        <li ng-controller="LogoutController as vm">
+          <a class="page-scroll" href="javascript:void(0)" ng-disabled="processLogout" v-busy="processLogout" v-busy-label="Wait" ng-click="vm.logout()" v-pressable>Logout</a>
+        </li>
+        {% else %}
+        <li ng-class="{active: $state.is('login')}"><a ui-sref="login">Login</a></li>
+        {% endif %}    
+      </ul>
+    </div>
+    <!-- end of navbar-collapse -->
+  </div>
+</nav>
+<!-- end of container -->

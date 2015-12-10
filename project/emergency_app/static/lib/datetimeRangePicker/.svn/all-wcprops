@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/README.md
+END
+range-picker.less
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/range-picker.less
+END
+range-picker.css
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/range-picker.css
+END
+range-picker.sass
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/range-picker.sass
+END
+range-picker.min.css
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/range-picker.min.css
+END
+range-picker.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/range-picker.js
+END
+range-picker.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/range-picker.min.js
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/.gitignore
+END
+CHANGELOG.md
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/CHANGELOG.md
+END
+bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/datetimeRangePicker/bower.json
+END

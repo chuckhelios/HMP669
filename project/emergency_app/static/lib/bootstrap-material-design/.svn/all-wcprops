@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/training/!svn/ver/50/fcny_reviewerF/static/lib/bootstrap-material-design
+END
+.travis.yml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/training/!svn/ver/27/fcny_reviewerF/static/lib/bootstrap-material-design/.travis.yml
+END
+.versions
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/training/!svn/ver/27/fcny_reviewerF/static/lib/bootstrap-material-design/.versions
+END
+.editorconfig
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/training/!svn/ver/27/fcny_reviewerF/static/lib/bootstrap-material-design/.editorconfig
+END
+custom-color-palette.sh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/training/!svn/ver/27/fcny_reviewerF/static/lib/bootstrap-material-design/custom-color-palette.sh
+END
+.jshintrc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/training/!svn/ver/27/fcny_reviewerF/static/lib/bootstrap-material-design/.jshintrc
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/training/!svn/ver/27/fcny_reviewerF/static/lib/bootstrap-material-design/.gitignore
+END

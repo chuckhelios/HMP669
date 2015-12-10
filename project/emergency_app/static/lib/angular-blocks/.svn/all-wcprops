@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks
+END
+.jshintrc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/.jshintrc
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/LICENSE
+END
+package.json
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/package.json
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/.gitignore
+END
+.travis.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/.travis.yml
+END
+bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/bower.json
+END
+.gitattributes
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/.gitattributes
+END
+Gruntfile.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/Gruntfile.js
+END
+karma.conf.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/karma.conf.js
+END
+readme.md
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/readme.md
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/training/!svn/ver/37/fcny_reviewerF/static/lib/angular-blocks/Makefile
+END

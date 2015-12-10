@@ -1,0 +1,33 @@
+<form id="main-search" ng-submit="submit()" >
+	<div class="form-group col-md-6">
+		<label class="form-label">First Name</label>
+		<input type="text" class="form-control" ng-model="fname"></input>
+	</div>
+	<div class="form-group col-md-6">
+		<label class="form-label">Last Name</label>
+		<input type="text" class="form-control" ng-model="lname"></input>
+	</div>
+	<div class="form-group col-md-6">
+		<label class="form-label">Gender</label>
+		<input type="text" class="form-control" ng-model="gender"></input>
+
+<!-- 		<button type="button" class="btn btn-default" ng-model="gender" data-html="1" bs-options="val in genders" bs-select>
+			<span class="caret"></span>
+		</button> -->
+	</div>
+	<div class="form-group col-md-6">
+		<label class="form-label">Building Number</label>
+		<input type="text" class="form-control" ng-model="building"></input>
+
+<!-- 		<button type="button" class="btn btn-default" ng-model="building" data-html="1" bs-options="icon.value as icon.label for icon in icons" bs-select>
+			<span class="caret"></span>
+		</button> -->
+	</div>	
+	<div class="form-group col-md-6">
+		<label class="form-label">Room Number</label>
+		<input type="Select" class="form-control" ng-model="room"></input>
+	</div>	
+	<div class="form-group btn-control col-md-12">
+		<button type="submit" class="btn btn-default" ng-disabled="form.$invalid || dataLoading" v-busy="dataLoading" v-busy-label="Posting" v-pressable>Search</button>
+	</div>
+</form>

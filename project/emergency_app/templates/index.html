@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emergency_app</title>
+	<base href='/' />
+	{% include 'header.html'%}
+
+</head>
+<body ng-app='root'>
+{% include 'nav.html' %}
+
+<section id='main-body'>
+	<div class='container'>
+		<div class="am-flip-x row" ui-view='ui-top-view'></div>
+	</div>
+</section>
+{% include 'footer.html'%}
+{% include 'javascript.html' %}
+</body>
+</html>

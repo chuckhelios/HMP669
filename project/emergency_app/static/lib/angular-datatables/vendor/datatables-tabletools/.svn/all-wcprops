@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/training/!svn/ver/43/fcny_reviewerF/static/lib/angular-datatables/vendor/datatables-tabletools
+END
+Readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/training/!svn/ver/43/fcny_reviewerF/static/lib/angular-datatables/vendor/datatables-tabletools/Readme.txt
+END
+.bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/training/!svn/ver/43/fcny_reviewerF/static/lib/angular-datatables/vendor/datatables-tabletools/.bower.json
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/training/!svn/ver/43/fcny_reviewerF/static/lib/angular-datatables/vendor/datatables-tabletools/.gitignore
+END
+bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/training/!svn/ver/43/fcny_reviewerF/static/lib/angular-datatables/vendor/datatables-tabletools/bower.json
+END
+make.sh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/training/!svn/ver/43/fcny_reviewerF/static/lib/angular-datatables/vendor/datatables-tabletools/make.sh
+END
