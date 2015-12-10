@@ -16,6 +16,9 @@ CREATE TABLE Medication (
 	medication VARCHAR(100) NOT NULL
 );
 
+
+
+
 DROP TABLE IF EXISTS MedicalRecord;
 CREATE TABLE MedicalRecord (
 	MRN INTEGER PRIMARY KEY autoincrement NOT NULL,
