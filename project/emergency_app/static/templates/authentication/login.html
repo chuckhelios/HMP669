@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4" >
-    <h1>Login</h1>
+    <div class="name">eSenior Care</div>
+    <h1 class="headline">Welcome</h1>
+    <h2 class="headline2">Please login to continue</h2>
     <div class="well loginView">
       <form name="form" role="form" ng-submit="vm.login()">
         <div class="form-group">
@@ -19,7 +21,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid || dataLoading" v-busy="dataLoading" v-busy-label="Sign in" v-pressable>Submit</button>
+          <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid || dataLoading" v-busy="dataLoading" v-busy-label="Sign in" v-pressable>Login</button>
         </div>
       </form>
     </div>
