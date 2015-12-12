@@ -13,7 +13,7 @@ from django.db import models
 
 
 class Building(models.Model):
-    buildingcode = models.CharField(db_column='buildingCode', primary_key=True, max_length=2, blank=True)  # Field name made lowercase.
+    buildingcode = models.CharField(db_column='buildingCode', primary_key=True, max_length=2, blank=True, null=True)  # Field name made lowercase.
     name = models.CharField(max_length=100)
 
     class Meta:
@@ -22,7 +22,7 @@ class Building(models.Model):
 
 
 class Diagnosis(models.Model):
-    diagnosisno = models.IntegerField(db_column='diagnosisNo', primary_key=True, blank=True)  # Field name made lowercase.
+    diagnosisno = models.IntegerField(db_column='diagnosisNo', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     daignosisdate = models.DateField(db_column='daignosisDate')  # Field name made lowercase.
     diagnosis = models.CharField(max_length=100)
 
@@ -32,7 +32,7 @@ class Diagnosis(models.Model):
 
 
 class Employee(models.Model):
-    empid = models.CharField(db_column='empId', primary_key=True, max_length=10, blank=True)  # Field name made lowercase.
+    empid = models.CharField(db_column='empId', primary_key=True, max_length=10, blank=True, null=True)  # Field name made lowercase.
     namefirst = models.CharField(db_column='nameFirst', max_length=20)  # Field name made lowercase.
     namelast = models.CharField(db_column='nameLast', max_length=20)  # Field name made lowercase.
     username = models.CharField(db_column='userName', max_length=20)  # Field name made lowercase.
@@ -46,7 +46,7 @@ class Employee(models.Model):
 
 
 class Hospital(models.Model):
-    hospitalid = models.CharField(db_column='hospitalId', primary_key=True, max_length=3, blank=True)  # Field name made lowercase.
+    hospitalid = models.CharField(db_column='hospitalId', primary_key=True, max_length=3, blank=True, null=True)  # Field name made lowercase.
     name = models.CharField(max_length=50)
 
     class Meta:
@@ -55,9 +55,9 @@ class Hospital(models.Model):
 
 
 class Incidentreport(models.Model):
-    eventid = models.IntegerField(db_column='eventId', primary_key=True, blank=True)  # Field name made lowercase.
+    eventid = models.IntegerField(db_column='eventId', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     empid = models.ForeignKey(Employee, db_column='empId')  # Field name made lowercase.
-    residentid = models.ForeignKey('Resident', db_column='residentId')  # Field name made lowercase.
+    mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN')  # Field name made lowercase.
     startdatetime = models.DateField(db_column='startDateTime')  # Field name made lowercase.
     enddatetime = models.DateField(db_column='endDateTime')  # Field name made lowercase.
     narrative = models.CharField(max_length=1500, blank=True, null=True)
@@ -68,20 +68,8 @@ class Incidentreport(models.Model):
         db_table = 'IncidentReport'
 
 
-class Medicalrecord(models.Model):
-    mrn = models.IntegerField(db_column='MRN', primary_key=True, blank=True)  # Field name made lowercase.
-    diagnosisno = models.ForeignKey(Diagnosis, db_column='diagnosisNo', blank=True)  # Field name made lowercase.
-    daignosisdesription = models.CharField(db_column='daignosisDesription', max_length=100)  # Field name made lowercase.
-    medicationno = models.IntegerField(db_column='medicationNo', blank=True, null=True)  # Field name made lowercase.
-    reasonformedication = models.CharField(db_column='reasonForMedication', max_length=100)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'MedicalRecord'
-
-
 class Medication(models.Model):
-    medicationno = models.IntegerField(db_column='medicationNo', primary_key=True, blank=True)  # Field name made lowercase.
+    medicationno = models.IntegerField(db_column='medicationNo', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     medstartdate = models.DateField(db_column='medStartDate')  # Field name made lowercase.
     medenddate = models.DateField(db_column='medEndDate')  # Field name made lowercase.
     medication = models.CharField(max_length=100)
@@ -91,28 +79,52 @@ class Medication(models.Model):
         db_table = 'Medication'
 
 
-class Resident(models.Model):
-    residentid = models.CharField(db_column='residentId', primary_key=True, max_length=10, blank=True)  # Field name made lowercase.
+class Recorddiagnosistbl(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN')  # Field name made lowercase.
+    diagnosisno = models.ForeignKey(Diagnosis, db_column='diagnosisNo')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'RecordDiagnosistbl'
+
+
+class Recordmedicationtbl(models.Model):
+    rmid = models.IntegerField(primary_key=True)
+    mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN')  # Field name made lowercase.
+    medicationno = models.ForeignKey(Medication, db_column='medicationNo')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'RecordMedicationtbl'
+
+
+class Residentmedicalrecord(models.Model):
+    mrn = models.IntegerField(db_column='MRN', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     namefirst = models.CharField(db_column='nameFirst', max_length=20)  # Field name made lowercase.
     namelast = models.CharField(db_column='nameLast', max_length=20)  # Field name made lowercase.
     dob = models.DateField()
     gender = models.CharField(max_length=1)
-    mrn = models.ForeignKey(Medicalrecord, db_column='MRN', blank=True)  # Field name made lowercase.
     roomno = models.IntegerField(db_column='roomNo', blank=True, null=True)  # Field name made lowercase.
-    buildingcode = models.ForeignKey(Building, db_column='buildingCode', blank=True)  # Field name made lowercase.
+    buildingcode = models.ForeignKey(Building, db_column='buildingCode', blank=True, null=True)  # Field name made lowercase.
     hospitalpreference = models.CharField(db_column='hospitalPreference', max_length=100, blank=True, null=True)  # Field name made lowercase.
     emergencycontacts = models.CharField(db_column='emergencyContacts', max_length=500)  # Field name made lowercase.
     emergencyphoneno = models.CharField(db_column='emergencyPhoneNo', max_length=10)  # Field name made lowercase.
     phoneno = models.CharField(db_column='phoneNo', max_length=10)  # Field name made lowercase.
     phonetype = models.CharField(db_column='phoneType', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    diagnosisno = models.ForeignKey(Recorddiagnosistbl, db_column='diagnosisNo', blank=True, null=True)  # Field name made lowercase.
+    daignosisdesription = models.CharField(db_column='daignosisDesription', max_length=100)  # Field name made lowercase.
+    medicationno = models.ForeignKey(Recordmedicationtbl, db_column='medicationNo', blank=True, null=True)  # Field name made lowercase.
+    reasonformedication = models.CharField(db_column='reasonForMedication', max_length=100)  # Field name made lowercase.
+    medications = models.ManyToManyField(Medication, through='Recordmedicationtbl')
 
     class Meta:
         managed = False
-        db_table = 'Resident'
+        db_table = 'ResidentMedicalRecord'
 
 
 class Vitalsigns(models.Model):
-    uniqueid = models.IntegerField(db_column='uniqueId', primary_key=True, blank=True)  # Field name made lowercase.
+    uniqueid = models.IntegerField(db_column='uniqueId', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     eventid = models.ForeignKey(Incidentreport, db_column='eventId')  # Field name made lowercase.
     empid = models.ForeignKey(Employee, db_column='empId')  # Field name made lowercase.
     assesmdatetime = models.DateField(db_column='assesmDateTime')  # Field name made lowercase.
@@ -126,10 +138,11 @@ class Vitalsigns(models.Model):
 
 
 class Vitalsignstype(models.Model):
-    typecode = models.CharField(db_column='typeCode', primary_key=True, max_length=1, blank=True)  # Field name made lowercase.
+    typecode = models.CharField(db_column='typeCode', primary_key=True, max_length=1, blank=True, null=True)  # Field name made lowercase.
     name = models.CharField(max_length=20)
 
     class Meta:
         managed = False
         db_table = 'VitalSignsType'
+
 

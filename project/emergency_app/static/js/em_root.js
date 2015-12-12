@@ -12,6 +12,7 @@
       'root.config',
       'root.authentication',
       'root.search',
+      'root.utils',
       
     ]);
 

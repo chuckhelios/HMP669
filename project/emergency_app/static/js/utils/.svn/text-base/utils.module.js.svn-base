@@ -1,0 +1,15 @@
+/**
+* fcny.utils
+* @namespace fcny.utils
+*/
+(function () {
+  'use strict';
+
+  angular
+    .module('fcny.utils', [
+      'fcny.utils.services'
+    ]);
+
+  angular
+    .module('fcny.utils.services', []);
+})();

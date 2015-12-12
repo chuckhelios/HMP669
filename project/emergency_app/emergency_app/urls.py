@@ -20,17 +20,23 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_bulk.routes import BulkRouter
 
 from emergency_app.views import IndexView
-from PatientSearch.views import ResidentInfoViewSet
+from PatientSearch.views import *
 from authentication.views import AccountViewSet, LoginView, LogoutView
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
 router.register(r'residents', ResidentInfoViewSet)
+router.register(r'incidents', IncidentViewSet)
+router.register(r'incidentReport', IncidentReportViewSet)
+
+bulkRouter = BulkRouter()
+bulkRouter.register(r'vitalsigns',VitalsignsViewSet)
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^api/', include(router.urls)),
+    url(r'api/',include(bulkRouter.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),	
 	url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
 	url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout'),

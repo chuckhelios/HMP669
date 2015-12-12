@@ -1,0 +1,112 @@
+/**
+* Snackbar
+* @namespace root.utils.services
+*/
+(function ($, _) {
+  'use strict';
+
+  angular
+    .module('root.utils.services')
+    .factory('Snackbar', Snackbar);
+
+  /**
+  * @namespace root.utils.services.Snackbar
+ */
+  function Snackbar() {
+    /**
+    * @name Snackbar
+    * @desc The factory to be returned
+    * @memberOf root.utils.services.Snackbar
+    */
+    var Snackbar = {
+      error: error,
+      show: show,
+      danger: danger,
+      warning: warning,
+    };
+    var base_style = "alert snackbar-alert";
+    var success_style = " alert-success ";
+    var danger_style = " alert-danger ";
+    var warning_style = " alert-warning ";
+
+    return Snackbar;
+
+    ////////////////////
+
+    /**
+    * @name _snackbar
+    * @desc Display a snackbar
+    * @param {string} content The content of the snackbar
+    * @param {Object} options Options for displaying the snackbar
+    * @memberOf root.utils.services.Snackbar
+    */
+    function _snackbar(content, options) {
+      options = _.extend({ timeout: 3000 }, options);
+      options.content = content;
+
+      $.snackbar(options);
+    }
+
+
+    /**
+    * @name error
+    * @desc Display an error snackbar
+    * @param {string} content The content of the snackbar
+    * @param {Object} options Options for displaying the snackbar
+    * @memberOf root.utils.services.Snackbar
+    */
+    function error(content) {
+      // options = _.extend({ timeout: 3000 }, options);
+      // options.content = content;
+      var options = {
+        style: base_style + danger_style,
+      }
+
+      _snackbar('Error: ' + content, options);
+    }
+
+
+    /**
+    * @name show
+    * @desc Display a standard snackbar
+    * @param {string} content The content of the snackbar
+    * @memberOf root.utils.services.Snackbar
+    */
+    function show(content) {
+      var options = {
+        style: base_style + success_style,
+      }
+
+      _snackbar(content, options);
+    }
+
+    /**
+    * @name danger
+    * @desc Display a danger label snackbar
+    * @param {string} content The content of the snackbar
+    * @memberOf root.utils.services.Snackbar
+    */
+    function danger(content) {
+      var options = {
+        style: base_style + danger_style,
+      }
+
+      _snackbar(content, options);
+    }
+
+    /**
+    * @name danger
+    * @desc Display a danger label snackbar
+    * @param {string} content The content of the snackbar
+    * @memberOf root.utils.services.Snackbar
+    */
+    function warning(content) {
+      var options = {
+        style: base_style + warning_style,
+      }
+
+      _snackbar(content, options);
+    }
+
+  }
+})($, _);

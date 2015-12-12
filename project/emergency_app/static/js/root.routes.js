@@ -63,6 +63,22 @@
           controller: 'ResidentDetailController as vm'
         }
       }
+    }).state('resident.detail.info', {
+      url: '/incident-info',
+      views:{
+        'incident-info': {
+          templateUrl: '/static/templates/search/incident.info.html',
+          controller: function(){}
+        }
+      }
+    }).state('resident.detail.new', {
+      url:'/incident-new',
+      views:{
+        'incident-new': {
+          templateUrl:  '/static/templates/search/incident.new.html',
+          controller: 'IncidentNewController as vm'
+        }
+      }
     });//end state
   
   }

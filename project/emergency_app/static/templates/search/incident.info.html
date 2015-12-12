@@ -1,0 +1,27 @@
+<article class="incident-info" ng-repeat="incident in residentDetail.incidents">
+	<div class="child-element-2">
+		<h6> Event Info-</h6>				
+		<ui>
+			<li class="info-list">Event ID: {{incident.eventid}}</li>
+			<li class="info-list">Start Datetime: {{incident.startdatetime}}</li>
+			<li class="info-list">End Datetime: {{incident.enddatetime}}</li>
+			<li class="info-list">narrative: {{incident.narrative}}</li>
+			<li class="info-list">Hospital ID: {{incident.hospitalid.hospitalid}}</li>
+			<li class="info-list">Hospital Name: {{incident.hospitalid.name}}</li>
+			<li class="info-list">Documented By(EID): {{incident.empid}}</li>
+		</ui>
+	</div>
+	<div class="child-element-2">
+		<h6> Vital Signs-</h6>				
+		<ui ng-repeat="vital in incident.vitalSigns" class="vital-item">
+			<li class="info-list">Vital ID: {{vital.uniqueid}}</li>
+			<li class="info-list">Vital Type: {{vital.vitaltype.typecode}}</li>
+			<li class="info-list">Vital Name: {{vital.vitaltype.name}}</li>
+			<li class="info-list">Assesment Datetime: {{vital.assesmdatetime}}</li>
+			<li class="info-list">Results: {{vital.results}}</li>
+			<li class="info-list">Comments: {{vital.comments}}</li>
+			<li class="info-list">Assessed By(EID): {{vital.empid}}</li>
+		</ui>
+	</div>
+
+</article>

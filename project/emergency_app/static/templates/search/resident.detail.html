@@ -4,19 +4,49 @@
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-12">
 				<h5>Resident Info</h5>
 				<ui>
-					<li></li>
+					<li class="info-list">MRN: {{residentDetail.mrn}} </li>
+					<li class="info-list">Name: {{residentDetail.namefirst}} {{residentDetail.namelast}}</li>
+					<li class="info-list">Phone #: {{residentDetail.phoneno}} </li>
+					<li class="info-list">Date of Birth: {{residentDetail.dob}} </li>
+					<li class="info-list">Gender: {{residentDetail.gender}} </li>
+					<li class="info-list">Building #: {{residentDetail.buildingcode}} </li>
+					<li class="info-list">Room #: {{residentDetail.roomno}} </li>
+					<li class="info-list">Hospital Preference: {{residentDetail.hospitalpreference}} </li>
+					<li class="info-list">Emergency Contacts: {{residentDetail.emergencycontacts}} </li>
+					<li class="info-list">Emergency Phone #: {{residentDetail.emergencyphoneno}} </li>
 				</ui>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-12">
 				<h5>Medical History</h5>
+				<div class="child-elment-1">
+					<h6>Medications -</h6>
+					<ui ng-repeat="m in residentDetail.med">
+						<li class="info-list">Medication #: {{m.medicationno}}</li>
+						<li class="info-list">Medication Name: {{m.medication}}</li>
+						<li class="info-list">Start Date: {{m.medstartdate}} </li>
+						<li class="info-list">End Date: {{m.medenddate}} </li>
+					</ui>					
+				</div>
+				<div class="child-elment-1">
+					<h6>Diagnosis -</h6>				
+					<ui ng-repeat="d in residentDetail.diag">
+						<li class="info-list">Diagnosis #: {{d.diagnosisno}}</li>
+						<li class="info-list">Diagnosis Name: {{d.diagnosis}}</li>
+						<li class="info-list">Diagnosis Date: {{d.daignosisdate}} </li>
+					</ui>					
+				</div>				
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-12">
 				<h5>Incident Report</h5>
-				<div ui-view="incident-info" class="slide"></div>
-				<div ui-view="incident-new" class="slide"></div>
+				<div class="btn-control">
+					<button type="button" class="btn btn-primary btn-sm" ui-sref="resident.detail.info">Previous Report</button>
+					<button type="button" class="btn btn-primary btn-sm" ui-sref="resident.detail.new" >Create New</button>
+				</div>
+				<div ui-view="incident-info" class="an-basic"></div>
+				<div ui-view="incident-new" class="an-basic"></div>
 			</div>
 		</div>
 <!-- 		<h5>Resident ID: {{patientDetail.patient_id}}</h5>

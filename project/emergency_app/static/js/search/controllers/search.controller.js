@@ -20,11 +20,10 @@
 		$scope.lname = '';
 		$scope.genders = ['M', 'F']
 		$scope.gender = 'M';
-		$scope.buildings = [1,2,3,4]
+		// $scope.buildings = [1,2,3,4]
 		$scope.building = null;
 		$scope.room = null;
 
-		$scope.icons = [{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"},{"value":"Heart","label":"<i class=\"fa fa-heart\"></i> Heart"},{"value":"Camera","label":"<i class=\"fa fa-camera\"></i> Camera"}];
 		$scope.submit = function(){
 			$scope.dataLoading = true;
 			var resident = {}
