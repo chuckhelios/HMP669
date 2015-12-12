@@ -86,7 +86,7 @@
 	    function postErrorFn(data, status, headers, config){
 	    	$rootScope.$broadcast('post.created.error');
 	    	console.log(data);
-	    	Snackbar.error(status);
+	    	Snackbar.error(data.statusText);
 	    }	
 
 
