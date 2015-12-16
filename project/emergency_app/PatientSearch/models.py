@@ -22,8 +22,7 @@ class Building(models.Model):
 
 
 class Diagnosis(models.Model):
-    diagnosisno = models.IntegerField(db_column='diagnosisNo', primary_key=True, blank=True)  # Field name made lowercase.
-    daignosisdate = models.DateField(db_column='daignosisDate')  # Field name made lowercase.
+    diagnosisno = models.IntegerField(db_column='diagnosisNo', primary_key=True, blank=True,)  # Field name made lowercase.
     diagnosis = models.CharField(max_length=100)
 
     class Meta:
@@ -70,8 +69,6 @@ class Incidentreport(models.Model):
 
 class Medication(models.Model):
     medicationno = models.IntegerField(db_column='medicationNo', primary_key=True, blank=True)  # Field name made lowercase.
-    medstartdate = models.DateField(db_column='medStartDate')  # Field name made lowercase.
-    medenddate = models.DateField(db_column='medEndDate')  # Field name made lowercase.
     medication = models.CharField(max_length=100)
 
     class Meta:
@@ -83,6 +80,7 @@ class Recorddiagnosistbl(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN', related_name='rd_mrn')  # Field name made lowercase.
     diagnosisno = models.ForeignKey(Diagnosis, db_column='diagnosisNo', related_name='rd_diag')  # Field name made lowercase.
+    daignosisdate = models.DateField(db_column='daignosisDate')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -93,6 +91,8 @@ class Recordmedicationtbl(models.Model):
     rmid = models.IntegerField(primary_key=True)
     mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN', related_name='rm_mrn')  # Field name made lowercase.
     medicationno = models.ForeignKey(Medication, db_column='medicationNo', related_name='rm_med')  # Field name made lowercase.
+    medstartdate = models.DateField(db_column='medStartDate')  # Field name made lowercase.
+    medenddate = models.DateField(db_column='medEndDate')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -112,8 +112,8 @@ class Residentmedicalrecord(models.Model):
     emergencyphoneno = models.CharField(db_column='emergencyPhoneNo', max_length=10)  # Field name made lowercase.
     phoneno = models.CharField(db_column='phoneNo', max_length=10)  # Field name made lowercase.
     phonetype = models.CharField(db_column='phoneType', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    medications = models.ManyToManyField(Medication, through='Recordmedicationtbl')
-    diagnosis = models.ManyToManyField(Diagnosis, through='Recorddiagnosistbl')
+    # medications = models.ManyToManyField(Medication, through='Recordmedicationtbl')
+    # diagnosis = models.ManyToManyField(Diagnosis, through='Recorddiagnosistbl')
 
     class Meta:
         managed = False

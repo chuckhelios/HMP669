@@ -23,7 +23,6 @@ class Building(models.Model):
 
 class Diagnosis(models.Model):
     diagnosisno = models.IntegerField(db_column='diagnosisNo', primary_key=True, blank=True, null=True)  # Field name made lowercase.
-    daignosisdate = models.DateField(db_column='daignosisDate')  # Field name made lowercase.
     diagnosis = models.CharField(max_length=100)
 
     class Meta:
@@ -58,8 +57,8 @@ class Incidentreport(models.Model):
     eventid = models.IntegerField(db_column='eventId', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     empid = models.ForeignKey(Employee, db_column='empId')  # Field name made lowercase.
     mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN')  # Field name made lowercase.
-    startdatetime = models.DateField(db_column='startDateTime')  # Field name made lowercase.
-    enddatetime = models.DateField(db_column='endDateTime')  # Field name made lowercase.
+    startdatetime = models.DateTimeField(db_column='startDateTime')  # Field name made lowercase.
+    enddatetime = models.DateTimeField(db_column='endDateTime')  # Field name made lowercase.
     narrative = models.CharField(max_length=1500, blank=True, null=True)
     hospitalid = models.ForeignKey(Hospital, db_column='hospitalId')  # Field name made lowercase.
 
@@ -70,8 +69,6 @@ class Incidentreport(models.Model):
 
 class Medication(models.Model):
     medicationno = models.IntegerField(db_column='medicationNo', primary_key=True, blank=True, null=True)  # Field name made lowercase.
-    medstartdate = models.DateField(db_column='medStartDate')  # Field name made lowercase.
-    medenddate = models.DateField(db_column='medEndDate')  # Field name made lowercase.
     medication = models.CharField(max_length=100)
 
     class Meta:
@@ -83,6 +80,7 @@ class Recorddiagnosistbl(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN')  # Field name made lowercase.
     diagnosisno = models.ForeignKey(Diagnosis, db_column='diagnosisNo')  # Field name made lowercase.
+    daignosisdate = models.DateField(db_column='daignosisDate')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -93,6 +91,8 @@ class Recordmedicationtbl(models.Model):
     rmid = models.IntegerField(primary_key=True)
     mrn = models.ForeignKey('Residentmedicalrecord', db_column='MRN')  # Field name made lowercase.
     medicationno = models.ForeignKey(Medication, db_column='medicationNo')  # Field name made lowercase.
+    medstartdate = models.DateField(db_column='medStartDate')  # Field name made lowercase.
+    medenddate = models.DateField(db_column='medEndDate')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -112,11 +112,6 @@ class Residentmedicalrecord(models.Model):
     emergencyphoneno = models.CharField(db_column='emergencyPhoneNo', max_length=10)  # Field name made lowercase.
     phoneno = models.CharField(db_column='phoneNo', max_length=10)  # Field name made lowercase.
     phonetype = models.CharField(db_column='phoneType', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    diagnosisno = models.ForeignKey(Recorddiagnosistbl, db_column='diagnosisNo', blank=True, null=True)  # Field name made lowercase.
-    daignosisdesription = models.CharField(db_column='daignosisDesription', max_length=100)  # Field name made lowercase.
-    medicationno = models.ForeignKey(Recordmedicationtbl, db_column='medicationNo', blank=True, null=True)  # Field name made lowercase.
-    reasonformedication = models.CharField(db_column='reasonForMedication', max_length=100)  # Field name made lowercase.
-    medications = models.ManyToManyField(Medication, through='Recordmedicationtbl')
 
     class Meta:
         managed = False
@@ -127,7 +122,7 @@ class Vitalsigns(models.Model):
     uniqueid = models.IntegerField(db_column='uniqueId', primary_key=True, blank=True, null=True)  # Field name made lowercase.
     eventid = models.ForeignKey(Incidentreport, db_column='eventId')  # Field name made lowercase.
     empid = models.ForeignKey(Employee, db_column='empId')  # Field name made lowercase.
-    assesmdatetime = models.DateField(db_column='assesmDateTime')  # Field name made lowercase.
+    assesmdatetime = models.DateTimeField(db_column='assesmDateTime')  # Field name made lowercase.
     vitaltype = models.ForeignKey('Vitalsignstype', db_column='vitalType')  # Field name made lowercase.
     results = models.CharField(max_length=100, blank=True, null=True)
     comments = models.CharField(max_length=500, blank=True, null=True)
@@ -146,3 +141,120 @@ class Vitalsignstype(models.Model):
         db_table = 'VitalSignsType'
 
 
+class AuthGroup(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    name = models.CharField(unique=True, max_length=80)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group'
+
+
+class AuthGroupPermissions(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    group = models.ForeignKey(AuthGroup)
+    permission = models.ForeignKey('AuthPermission')
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group_permissions'
+        unique_together = (('group_id', 'permission_id'),)
+
+
+class AuthPermission(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    content_type = models.ForeignKey('DjangoContentType')
+    codename = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_permission'
+        unique_together = (('content_type_id', 'codename'),)
+
+
+class AuthUser(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    password = models.CharField(max_length=128)
+    is_superuser = models.BooleanField()
+    username = models.CharField(unique=True, max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.CharField(max_length=254)
+    is_staff = models.BooleanField()
+    is_active = models.BooleanField()
+    date_joined = models.DateTimeField()
+    last_login = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user'
+
+
+class AuthUserGroups(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    user = models.ForeignKey(AuthUser)
+    group = models.ForeignKey(AuthGroup)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_groups'
+        unique_together = (('user_id', 'group_id'),)
+
+
+class AuthUserUserPermissions(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    user = models.ForeignKey(AuthUser)
+    permission = models.ForeignKey(AuthPermission)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_user_permissions'
+        unique_together = (('user_id', 'permission_id'),)
+
+
+class DjangoAdminLog(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    action_time = models.DateTimeField()
+    object_id = models.TextField(blank=True, null=True)
+    object_repr = models.CharField(max_length=200)
+    action_flag = models.PositiveSmallIntegerField()
+    change_message = models.TextField()
+    content_type = models.ForeignKey('DjangoContentType', blank=True, null=True)
+    user = models.ForeignKey(AuthUser)
+
+    class Meta:
+        managed = False
+        db_table = 'django_admin_log'
+
+
+class DjangoContentType(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    app_label = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40)
+    session_data = models.TextField()
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'

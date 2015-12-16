@@ -56,6 +56,25 @@ class FilteredLatestByIdSerializer(serializers.ListSerializer):
 			newdata = data
 		return super(FilteredLatestByIdSerializer, self).to_representation(newdata)
 
+class MedicationSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Medication
+
+class DiagnosisSerializer(serializers.ModelSerializer):
+	class Meta:
+		model =Diagnosis
+
+
+class RecordmedicationtblSerializer(serializers.ModelSerializer):
+	medicationno = MedicationSerializer('medicationno', many=False)
+	class Meta:
+		model = Recordmedicationtbl
+
+class RecorddiagnosistblSerializer(serializers.ModelSerializer):
+	diagnosisno = DiagnosisSerializer('diagnosisno', many=False)
+	class Meta:
+		model = Recorddiagnosistbl
+
 class VitalsignstypeSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Vitalsignstype
@@ -96,20 +115,14 @@ class ResidentInfoSerializer(serializers.ModelSerializer):
 	'''
 
 	'''
-	med = serializers.SerializerMethodField()
-	diag = serializers.SerializerMethodField()
+	med = RecordmedicationtblSerializer(source='rm_mrn', many=True)
+	diag = RecorddiagnosistblSerializer(source='rd_mrn', many=True)
 	incidents = IncidentreportSerializer(source='in_mrn', many=True)
 
 	class Meta:
 		model = Residentmedicalrecord
 		list_serializer_class = FilteredResidentSerializer
 		fields = ('mrn', 'namefirst', 'namelast', 'dob', 'gender', 'roomno', 'buildingcode', 'hospitalpreference', 'emergencycontacts', 'emergencyphoneno', 'phoneno', 'phonetype', 'med', 'diag', 'incidents' )
-	
-	def get_med(self, obj):
-		meds = obj.medications.all().values()
-		return meds
-	def get_diag(self, obj):
-		diag = obj.diagnosis.all().values()
-		return diag
+
 
 
