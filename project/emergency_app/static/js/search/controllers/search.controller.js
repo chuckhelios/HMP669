@@ -18,7 +18,7 @@
 
 		$scope.fname = '';
 		$scope.lname = '';
-		$scope.genders = ['M', 'F']
+		$scope.genders = ['M', 'F'];
 		$scope.gender = 'M';
 		// $scope.buildings = [1,2,3,4]
 		$scope.building = null;
