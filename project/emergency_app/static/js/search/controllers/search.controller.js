@@ -33,7 +33,7 @@
 			if ($scope.lname != ''){
 				resident['lname'] = $scope.fname;
 			}
-			if($scope.gender != ''){
+			if($scope.gender != '' && $scope.gender!='All'){
 				resident['gender'] = $scope.gender;
 			}
 			if($scope.building != null){
