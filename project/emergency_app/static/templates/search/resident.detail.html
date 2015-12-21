@@ -2,11 +2,29 @@
 	<div class="panel-heading">
 		<h4>Resident Details</h4>
 	</div>
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-12">
-				<h5>Resident Info</h5>
-				<ui>
+	 <!-- Nav tabs -->
+    <ul class="nav nav-tabs" class="tabwid">
+      <li class="active tabwid" >
+          <a href="#home" role="tab" data-toggle="tab">
+              <icon class="fa fa-home" ></icon> Resident Info
+          </a>
+      </li>
+      <li class="tabwid"><a href="#profile" role="tab" data-toggle="tab">
+          <i class="fa fa-user"></i> Medical History
+          </a>
+      </li>
+      <li class="tabwid">
+          <a href="#messages" role="tab" data-toggle="tab">
+              <i class="fa fa-envelope"></i> Diagnosis
+          </a>
+      </li>
+
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane fade active in" id="home">
+          	<ui>
 					<li class="info-list">MRN: {{residentDetail.mrn}} </li>
 					<li class="info-list">Name: {{residentDetail.namefirst}} {{residentDetail.namelast}}</li>
 					<li class="info-list">Phone #: {{residentDetail.phoneno}} </li>
@@ -20,8 +38,10 @@
 				</ui>
 			</div>
 			<div class="col-md-12">
-				<h5>Medical History</h5>
-				<div class="child-elment-1">
+          
+      </div>
+      <div class="tab-pane fade" id="profile">
+          <div class="child-elment-1">
 					<h6>Medications -</h6>
 					<ui ng-repeat="m in residentDetail.med">
 						<li class="info-list">Medication #: {{m.medicationno.medicationno}}</li>
@@ -37,8 +57,20 @@
 						<li class="info-list">Diagnosis Name: {{d.diagnosisno.diagnosis}}</li>
 						<li class="info-list">Diagnosis Date: {{d.daignosisdate}} </li>
 					</ui>					
-				</div>				
-			</div>
+				</div>
+          
+      </div>
+      <div class="tab-pane fade" id="messages">
+          <ui ng-repeat="d in residentDetail.diag">
+						<li class="info-list">Diagnosis #: {{d.diagnosisno.diagnosisno}}</li>
+						<li class="info-list">Diagnosis Name: {{d.diagnosisno.diagnosis}}</li>
+						<li class="info-list">Diagnosis Date: {{d.daignosisdate}} </li>
+					</ui>
+          
+      </div>
+</div>
+    </div>
+
 			<div class="col-md-12">
 				<h5>Incident Report</h5>
 				<div class="btn-control">
@@ -70,4 +102,3 @@
 			</tr>
 		</table> -->
 	</div>
-</div>
