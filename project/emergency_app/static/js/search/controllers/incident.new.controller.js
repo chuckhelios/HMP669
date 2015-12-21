@@ -75,7 +75,7 @@
 			// change GUI variables
 	    	console.log("post good");
 	    	Snackbar.show('Success! Post Created.');
-			$state.go($state.$current, null, { reload: true });
+			$state.go('resident.detail.info', null, { reload: true });
 	    }		
 
 

@@ -1,4 +1,4 @@
-<article class="incident-info" ng-repeat="incident in residentDetail.incidents">
+<article class="incident-info" ng-repeat="incident in residentDetail.incidents | orderBy :'-eventid'">
 	<div class="child-element-2">
 		<h6> Event Info-</h6>				
 		<ui>
@@ -24,5 +24,4 @@
 		</ui>
 	</div>
 <hr class="soft"/>
-
 </article>
