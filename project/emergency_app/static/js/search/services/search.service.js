@@ -22,6 +22,7 @@
 			IncidentReprotService: IncidentReprotService,
 			VitalSignsService: VitalSignsService,
 			GetBuilding: GetBuilding,
+			GetHospital: GetHospital,
 		}
 
 		return Search;
@@ -64,7 +65,15 @@
 			return $resource('/api/building/', null,{
 				'query': {method:'GET', isArray:true},
 			}).query().$promise.then(function(data){
-				return data
+				return data;
+			});
+		}
+
+		function GetHospital(){
+			return $resource('/api/hospital/', null, {
+				'query': {method:'GET', isArray:true},
+			}).query().$promise.then(function(data){
+				return data;
 			});
 		}
 	}

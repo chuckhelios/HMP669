@@ -18,7 +18,7 @@
 		// $scope.residentDetail= $rootScope.residentDetail
 		$scope.newIncident = {
 			eventid: null,
-			empid: null,
+			empid: $rootScope.globals.currentUser.username,
 			mrn: $scope.residentDetail.mrn,
 			startdatetime: null,
 			enddatetime: null,

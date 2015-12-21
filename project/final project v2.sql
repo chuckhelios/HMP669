@@ -217,3 +217,4 @@ INSERT INTO Employee VALUES ('EMT002','Yang','Li','yanglixx','hmp669','734000200
 INSERT INTO Employee VALUES ('EMT003','Ding','He','dinghe','hmp669','7340003000','PHY');
 INSERT INTO Employee VALUES ('EMT004','Jianyu','Lai','jianyul','hmp669','7340004000','EMT');
 INSERT INTO Employee VALUES ('EMT005','Ye','Zhang','zhangye','hmp669','7340005000','EMT');
+INSERT INTO Employee VALUES ('admin','Yang','Li','yanglixx','hmp669','7340002000','EMT');

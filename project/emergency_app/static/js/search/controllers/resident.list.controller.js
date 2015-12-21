@@ -16,8 +16,5 @@
 	function ResidentListController($scope, $rootScope, $state, $stateParams){
 		var vm = this;
 
-		
-
-
 	}
 })();

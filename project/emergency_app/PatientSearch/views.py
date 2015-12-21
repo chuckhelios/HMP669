@@ -40,3 +40,10 @@ class BuildingViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Building.objects.all()
 	serializer_class = BuildingSerializer
 	permission_classes = (IsAuthenticated,)
+
+class HospitalViewSet(viewsets.ReadOnlyModelViewSet):
+	model = Hospital
+	queryset = Hospital.objects.all()
+	serializer_class = HospitalSerializer
+	permission_classes = (IsAuthenticated,)
+	

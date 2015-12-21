@@ -20,7 +20,8 @@
 		$scope.lname = '';
 		$scope.genders = ['M', 'F'];
 		$scope.gender = 'All';
-		$scope.buildings = Buildings
+		$scope.buildings = Buildings;
+		$rootScope.buildings = $scope.buildings;
 		$scope.building = null;
 		$scope.room = null;
 

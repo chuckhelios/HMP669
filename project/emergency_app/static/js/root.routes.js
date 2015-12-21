@@ -62,6 +62,11 @@
       controller: 'ResidentListController as vm'
     }).state('resident.detail', {
       url: '/{mrn}',
+      resolve:{
+        Hospitals:['Search', function(Search){
+          return Search.GetHospital();
+        }]
+      },
       views:{
         'resident-detail': {
           templateUrl: '/static/templates/search/resident.detail.html',

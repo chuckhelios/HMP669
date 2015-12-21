@@ -11,11 +11,14 @@
 		</div>
 		<div class="form-group col-lg-12">
 			<label class="form-label">Hosptical</label>
-			<input type="text" class="form-control" ng-model="newIncident.hospitalid"></input>
+			<select class="form-control" ng-model="newIncident.hospitalid">
+    			<option value="" selected disabled>Please select</option>
+		    	<option ng-repeat="h in hospitals">{{h.hospitalid}}</option>
+		  </select>
 		</div>
 		<div class="form-group col-lg-12">
 			<label class="form-label">Narrative</label>
-			<input type="text" class="form-control" ng-model="newIncident.narrative"></input>
+			<textarea  rows="5" class="form-control" ng-model="newIncident.narrative"></textarea>
 		</div>
 		<div class="form-group col-lg-12">
 			<label class="form-label">Documented By(EID):</label>

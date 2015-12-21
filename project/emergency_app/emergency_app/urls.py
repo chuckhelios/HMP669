@@ -29,6 +29,7 @@ router.register(r'residents', ResidentInfoViewSet)
 router.register(r'incidents', IncidentViewSet)
 router.register(r'incidentReport', IncidentReportViewSet)
 router.register(r'building', BuildingViewSet)
+router.register(r'hospital', HospitalViewSet)
 bulkRouter = BulkRouter()
 bulkRouter.register(r'vitalsigns',VitalsignsViewSet)
 
