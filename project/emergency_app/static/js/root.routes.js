@@ -28,6 +28,11 @@
   		}
   	}).state('index', {
       url: '/',
+      resolve:{
+        Buildings: ['Search', function(Search){
+          return Search.GetBuilding();
+        }]
+      },
       views:{
         'ui-top-view':{
           templateUrl: '/static/templates/com/index.html',

@@ -11,10 +11,10 @@
 	</div>
 	<div class="form-group col-md-6">
 		<label class="form-label">Gender</label>
-		<select class="form-control" ng-model="gender" id="sel1">
+		<select class="form-control" ng-model="gender">
+		    <option>All</option>
 		    <option>M</option>
 		    <option>F</option>
-		    <option>All</option>
 		  </select>
 
 <!-- 		<button type="button" class="btn btn-default" ng-model="gender" data-html="1" bs-options="val in genders" bs-select>
@@ -23,7 +23,11 @@
 	</div>
 	<div class="form-group col-md-6">
 		<label class="form-label">Building Number</label>
-		<input type="text" class="form-control" ng-model="building"></input>
+		<select class="form-control" ng-model="building">
+    		<option value="" selected disabled>Please select</option>
+		    <option ng-repeat="b in buildings">{{b.buildingcode}}</option>
+		  </select>
+<!-- 		<input type="text" class="form-control" ng-model="building"></input> -->
 
 <!-- 		<button type="button" class="btn btn-default" ng-model="building" data-html="1" bs-options="icon.value as icon.label for icon in icons" bs-select>
 			<span class="caret"></span>

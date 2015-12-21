@@ -34,3 +34,9 @@ class VitalsignsViewSet(BulkModelViewSet):
 	queryset = Vitalsigns.objects.all()
 	serializer_class = VitalsignsPostSerializer
 	permission_classes = (IsAuthenticated,)
+
+class BuildingViewSet(viewsets.ReadOnlyModelViewSet):
+	model = Building
+	queryset = Building.objects.all()
+	serializer_class = BuildingSerializer
+	permission_classes = (IsAuthenticated,)

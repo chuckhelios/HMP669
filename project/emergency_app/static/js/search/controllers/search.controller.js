@@ -11,18 +11,20 @@
     .module('root.search.controllers')
     .controller('SearchController', SearchController);
 
-	SearchController.$inject = ['$scope', '$rootScope', '$state', '$stateParams'];
+	SearchController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'Buildings'];
 
-	function SearchController($scope, $rootScope, $state, $stateParams){
+	function SearchController($scope, $rootScope, $state, $stateParams, Buildings){
 		var vm = this;
 
 		$scope.fname = '';
 		$scope.lname = '';
 		$scope.genders = ['M', 'F'];
-		$scope.gender = 'M';
-		// $scope.buildings = [1,2,3,4]
+		$scope.gender = 'All';
+		$scope.buildings = Buildings
 		$scope.building = null;
 		$scope.room = null;
+
+		// console.log($scope.buildings);
 
 		$scope.submit = function(){
 			$scope.dataLoading = true;

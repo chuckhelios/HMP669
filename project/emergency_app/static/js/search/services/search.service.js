@@ -21,6 +21,7 @@
 			IncidentService: IncidentService,
 			IncidentReprotService: IncidentReprotService,
 			VitalSignsService: VitalSignsService,
+			GetBuilding: GetBuilding,
 		}
 
 		return Search;
@@ -56,6 +57,14 @@
 				'query': {method:'GET', isArray:true},
 				'update': {method: 'PUT', isArray:true},
 				'post': {method: 'POST', isArray:true},
+			});
+		}
+
+		function GetBuilding(){
+			return $resource('/api/building/', null,{
+				'query': {method:'GET', isArray:true},
+			}).query().$promise.then(function(data){
+				return data
 			});
 		}
 	}

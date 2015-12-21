@@ -125,4 +125,9 @@ class ResidentInfoSerializer(serializers.ModelSerializer):
 		fields = ('mrn', 'namefirst', 'namelast', 'dob', 'gender', 'roomno', 'buildingcode', 'hospitalpreference', 'emergencycontacts', 'emergencyphoneno', 'phoneno', 'phonetype', 'med', 'diag', 'incidents' )
 
 
+class BuildingSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Building
+		
+
 
