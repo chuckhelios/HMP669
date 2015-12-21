@@ -44,11 +44,11 @@
 				<label class="form-label">Comment</label>
 				<input type="text" class="form-control" ng-model="vital.comments"></input>
 			</div>
-			<button type="button" class="btn btn-danger btn-sm" ng-click="removeVital($index)">Remove</button>
+			<button type="button" id="remove" class="btn btn-danger btn-sm" ng-click="removeVital($index)">Remove</button>
 		</div>
 		<div class="row">
 			<div clas="form-group col-lg-12">
-				<button type="button" class="btn btn-primary btn-sm" ng-click="addVital()" v-pressable>Add vital</button>
+				<button type="button" id="avital" class="btn btn-primary btn-sm" ng-click="addVital()" v-pressable>Add vital</button>
 			</div>
 		</div>
 	</div>
