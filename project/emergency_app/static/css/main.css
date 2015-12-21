@@ -1,6 +1,11 @@
 #main-body{
 	margin-top: 50px;
 }
+.new-report{
+  text-align: center;
+  margin-top: 2em;
+}
+
 .headline {
   text-align: center;
 }
